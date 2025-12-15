@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SingAlong</title>
+  <style>
+    body {
+      font-family: system-ui, Arial;
+      margin: 20px;
+    }
+
+    .row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    canvas {
+      border: 1px solid #ddd;
+      border-radius: 14px;
+      margin-top: 14px;
+    }
+
+    input[type="range"] {
+      width: 240px;
+    }
+
+    .small {
+      color: #666;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>SingAlong (TS + WebAudio)</h2>
+
+  <div class="row">
+    <input id="file" type="file" accept="audio/*" />
+    <button id="play" disabled>Play</button>
+    <button id="pause" disabled>Pause</button>
+    <span id="status" class="small"></span>
+  </div>
+
+  <div class="row" style="margin-top:12px;">
+    <label>Boost</label>
+    <input id="boost" type="range" min="0.5" max="6" step="0.1" value="2.2" />
+
+    <label>Gate</label>
+    <input id="gate" type="range" min="0" max="0.08" step="0.001" value="0.018" />
+
+    <label>Attack</label>
+    <input id="attack" type="range" min="0.02" max="0.6" step="0.01" value="0.12" />
+
+    <label>Release</label>
+    <input id="release" type="range" min="0.02" max="0.9" step="0.01" value="0.35" />
+  </div>
+
+
+  <canvas id="cv" width="520" height="320"></canvas>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
